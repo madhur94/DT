@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Thought - Learning Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sidebar collapsed" id="sidebar"> 
+        <div class="sidebar-header">
+            <button class="toggle-button" id="toggleButton">
+                <img src="/images/arrow.png" alt="Toggle" id="toggleIcon"> 
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <ul class="primary-list">
+                <li class="main-topic">Explore the world of management</li>
+                <ul class="sub-list">
+                    <li>Technical Project Management</li>
+                    <li>Threadbuild</li>
+                    <li>Structure your pointers</li>
+                    <li>4SA Method</li>
+                </ul>
+            </ul>
+        </div>
+        <div class="collapsed-indicator" id="collapsedIndicator">
+            <div class="inner-rectangle">
+                <img src="/images/rectangle.png" alt="Rectangle" class="outer_rect">
+                <img style="width: 5px;" src="/images/1.png" alt="One" class="inner_one">
+            </div>
+        </div>
+    </div>
+    
+    <div class="main-content">
+    
+    </div>
+    
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const toggleButton = document.getElementById('toggleButton');
+        const toggleIcon = document.getElementById('toggleIcon');
+    
+        
+        if (sidebar.classList.contains('collapsed')) {
+            toggleIcon.src = "/images/reverse_arrow.png"; 
+        }
+    
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            if (sidebar.classList.contains('collapsed')) {
+                toggleIcon.src = "/images/reverse_arrow.png"; 
+            } else {
+                toggleIcon.src = "/images/arrow.png"; 
+            }
+        });
+    </script>
+    
+
+    <header class="header">
+        <div class="logo-container">
+            <img style="padding-left: 40px;" src="/images/logo1.png" alt="Users icon" class="icon">
+            
+        </div>
+        <div class="header-right">
+            <img src="/images/home.png" alt="Users icon" class="icon">
+            <img src="/images/settings.png" alt="Users icon" class="icon">
+            <img src="/images/bell.png" alt="Users icon" class="icon">
+            <img src="/images/Ellipse53.png" alt="Users icon" class="icon">
+            <div class="three-dots">
+                <img src="/images/Ellipse1.png" alt="Users icon" class="icon">
+                <img src="/images/Ellipse2.png" alt="Users icon" class="icon">
+                <img src="/images/Ellipse3.png" alt="Users icon" class="icon">
+            </div>
+        </div>
+    </header>
+
+ 
+    <main class="main-content">
+        <div class="page-header">
+            <h1 style="color: #0029FF; margin-top: 20px">Technical Project Management</h1>
+            <button class="submit-button">Submit task</button>
+        </div>
+            <div class="info-box">
+                <h3>Explore the world of management</h3>
+                <p>
+                    As a project manager, you play an important role in leading a project through initiation, planning, execution, monitoring, controlling, and completion. How? Do you want to manage each and every step of your life?
+                </p>
+            </div>
+            <div class="notification-board">
+    <span class="close-icon">×</span>
+    <span class="notification-text">Notice Board</span>
+</div>
+            
+        <div class="content-grid">
+        
+            <div class="asset-container">
+                <div class="asset-heimages
+                    <h3 style="align-content: center;">Technical Project Management</h3>
+                    <button class="info-button">ℹ️</button>
+                </div>
+                <div class="asset-description">
+                    <p> <h3 style="font: bold;">Description -</h3>Story of Alignment Scope of Agility Specific Measurable Targeted Approach</p>
+                </div>
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <iframe class="Video1" width="29" height="100" src="https://www.youtube.com/embed/TiMRwri1xJ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="thread-container">
+                <div class="thread-header">
+                    <h3>Threadbuild</h3>
+                    <button class="info-button">ℹ️</button>
+                </div>
+                <p class="thread-description"> <h3 style="font: bold;">Description:</h3> Watch the video and threadbuild, and jot out key threads while watching the video</p>
+                
+                <div class="thread-content">
+                    <div class="thread-title">
+                        <h4>Thread A</h4>
+                        <button class="expand-button">▲</button>
+                    </div>
+                    <div class="thread-input-group">
+                        <div class="input-box">
+                            <label for="sub-thread">Sub thread 1</label>
+                            <textarea id="sub-thread" placeholder="Enter Text here"></textarea>
+                        </div>
+                        <div class="input-box">
+                            <label for="sub-interpretation">Sub Interpretation 1</label>
+                            <textarea id="sub-interpretation" placeholder="Enter Text here"></textarea>
+                        </div>
+                    </div>
+                    <div class="thread-controls">
+                        <div class="icon-group">
+                            <img src="/images/Group1588.png" alt="Group">
+                        </div>
+                        <div class="dropdowns">
+                            <select class="dropdown">
+                                <option>Select Category</option>
+                            </select>
+                            <select class="dropdown">
+                                <option>Select Process</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="add-sub-thread-button"> Sub-thread</button>
+                    <div class="summary">
+                        <label for="summary-thread">Summary for Thread A</label>
+                        <textarea id="summary-thread" placeholder="Enter Text Here"></textarea>
+                    </div>
+                </div>
+            </div>
+   
+        <div class="asset-container">
+            <div class="asset-header">
+                <h3>Structure your Pointers</h3>
+                <button class="info-button">ℹ️</button>
+            </div>
+            <div class="asset-description">
+                <p>Description: Write a 300 - 400 word article from your thread. Publish your understanding and showcase your understanding to the entire world.</p>
+            </div>
+            <div class="thread-input">
+                <h3 style="padding-left: 2px;" for="title">Title</h3>
+                <input type="text" id="title" placeholder="Enter Title" class="text-input" />
+                <h3 style="padding-left: 2px;"for="content">Content</h3>
+                <img style="height: 90px;" src="/images/content.png" alt="Content">
+            </div>
+        </div>
+  
+
+    <div class="asset-container">
+        <div class="asset-header">
+            <h3>4SA Method</h3>
+            <button class="info-button">ℹ️</button>
+        </div>
+        <div class="asset-description">
+            <p>Description: To Explore more read more.</p>
+        </div>
+        <div class="thread-content">
+        <div class="thread-item">
+            <button class="collapse-button">▼ Introduction</button>
+            <p class="thread-text">The 4SA Method, How to bring an idea into progress?</p>
+            <a href="#" class="see-more">See More</a>
+        </div>
+        <div class="thread-item">
+            <button class="collapse-button">▼ Thread A</button>
+                <p class="thread-text">
+                How are you going to develop your strategy? Which method are you going
+                to use to develop a strategy? What if the project is lengthy?
+                </p>
+                <a href="#" class="see-more">See More</a>
+        </div>
+        <div class="thread-item">
+            <button class="collapse-button">▼ Example 1</button>
+                <p class="thread-text">
+                You have a concept, How will you put it into progress?
+                </p>
+        </div>
+        </div>
+    </div>
+  
+    </main>
+
+    <nav class="side-nav">
+        <button class="nav-button">
+            <img style="width: 25px;" src="/assets/question.png" alt="?">
+        </button>
+        <button class="nav-button">
+            <img style="width: 25px;" src="/assets/meeting.png" alt="👥">
+        </button>
+        <button class="nav-button">
+            <img style="width: 25px;" src="/assets/schedule.png" alt="📋">
+        </button>
+    </nav>
+</body>
+</html>
