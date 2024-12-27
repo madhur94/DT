@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep Thought - Learning Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar collapsed" id="sidebar">
+        <div class="sidebar-header">
+            <button class="toggle-button" id="toggleButton">
+                <img src="/assets/arrow.png" alt="Toggle" id="toggleIcon">
+            </button>
+        </div>
+        <div class="sidebar-content">
+            <ul class="primary-list">
+                <li class="main-topic">Explore the world of management</li>
+                <ul class="sub-list">
+                    <li>Technical Project Management</li>
+                    <li>Threadbuild</li>
+                    <li>Structure your pointers</li>
+                    <li>4SA Method</li>
+                </ul>
+            </ul>
+        </div>
+        <div class="collapsed-indicator" id="collapsedIndicator">
+            <div class="inner-rectangle">
+                <img src="/assets/rectangle.png" alt="Rectangle" class="outer_rect">
+                <img style="width: 5px;" src="/assets/1.png" alt="One" class="inner_one">
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <header class="header">
+        <div class="logo-container">
+            <img style="padding-left: 40px;" src="/assets/logo1.png" alt="Users icon" class="icon">
+        </div>
+        <div class="header-right">
+            <img src="/assets/home.png" alt="Home" class="icon">
+            <img src="/assets/settings.png" alt="Settings" class="icon">
+            <img src="/assets/bell.png" alt="Notifications" class="icon">
+            <img src="/assets/Ellipse53.png" alt="Profile" class="icon">
+            <div class="three-dots">
+                <img src="/assets/Ellipse1.png" alt="Dot 1" class="icon">
+                <img src="/assets/Ellipse2.png" alt="Dot 2" class="icon">
+                <img src="/assets/Ellipse3.png" alt="Dot 3" class="icon">
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1 style="color: #0029FF; margin-top: 20px">Technical Project Management</h1>
+            <button class="submit-button">Submit task</button>
+        </div>
+        <div class="info-box">
+            <h3>Explore the world of management</h3>
+            <p>
+                As a project manager, you play an important role in leading a project through initiation, planning, execution, monitoring, controlling, and completion. How? Do you want to manage each and every step of your life?
+            </p>
+        </div>
+
+        <!-- Content Grid for Assets -->
+        <div class="content-grid">
+            <!-- Assets will be dynamically rendered here -->
+        </div>
+
+        <!-- Notification Board -->
+        <div class="notification-board">
+            <span class="close-icon">&times;</span>
+            <span class="notification-text">Notice Board</span>
+        </div>
+    </main>
+
+    <!-- Navigation Sidebar -->
+    <nav class="side-nav">
+        <button class="nav-button">
+            <img style="width: 25px;" src="/assets/question.png" alt="?">
+        </button>
+        <button class="nav-button">
+            <img style="width: 25px;" src="/assets/meeting.png" alt="👥">
+        </button>
+        <button class="nav-button">
+            <img style="width: 25px;" src="/assets/schedule.png" alt="📋">
+        </button>
+    </nav>
+
+    <!-- JavaScript for Sidebar Toggle and Dynamic Asset Rendering -->
+    <script>
+        // Sidebar toggle functionality
+        const sidebar = document.getElementById('sidebar');
+        const toggleButton = document.getElementById('toggleButton');
+        const toggleIcon = document.getElementById('toggleIcon');
+
+        if (sidebar.classList.contains('collapsed')) {
+            toggleIcon.src = "/assets/reverse_arrow.png";
+        }
+
+        toggleButton.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            toggleIcon.src = sidebar.classList.contains('collapsed') ? "/assets/reverse_arrow.png" : "/assets/arrow.png";
+        });
+
+        // Function to create asset containers dynamically
+        function createAssetContainer(asset) {
+            return `
+                <div class="asset-container">
+                    <div class="asset-header">
+                        <h3>${asset.asset_title}</h3>
+                        <button class="info-icon">i</button>
+                    </div>
+                    <div class="asset-description">
+                        <p>${asset.asset_description}</p>
+                    </div>
+                    <div class="video-container">
+                        ${asset.asset_type === "display_asset" ? 
+                            `<iframe 
+                                class="Video1"
+                                src="${asset.asset_content}"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen>
+                            </iframe>` : ''
+                        }
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to render task assets dynamically
+        async function renderTaskAssets(taskId) {
+            try {
+                const response = await fetch('./assets-data.json');
+                const data = await response.json();
+                const task = data.tasks.find(task => task.task_id === taskId);
+
+                if (!task) return;
+
+                const container = document.querySelector('.content-grid');
+                task.assets.forEach(asset => {
+                    const assetHtml = createAssetContainer(asset);
+                    container.innerHTML += assetHtml;
+                });
+            } catch (error) {
+                console.error('Error loading task assets:', error);
+            }
+        }
+         
+        // Fetch JSON data
+fetch('./assets-data.json')
+.then((response) => response.json())
+.then((data) => {
+  // Find the 4SA Method asset
+  const fourSAMethod = data.tasks[0].assets.find(
+    (asset) => asset.asset_title === '4SA Method'
+  );
+
+  if (fourSAMethod) {
+    // Target container
+    const container = document.getElementById('fourth-card-sections');
+    const sections = fourSAMethod.asset_content.sections;
+
+    // Render sections dynamically
+    sections.forEach((section) => {
+      const sectionElement = document.createElement('div');
+      sectionElement.classList.add('thread-item');
+
+      sectionElement.innerHTML = `
+        <button class="collapse-button">▼ ${section.title}</button>
+        <p class="thread-text">${section.content}</p>
+        ${section.link ? `<a href="${section.link}" class="see-more">See More</a>` : ''}
+      `;
+
+      container.appendChild(sectionElement);
+    });
+  }
+})
+.catch((error) => console.error('Error fetching JSON:', error));
+
+
+        // Call the function to load assets dynamically
+        document.addEventListener('DOMContentLoaded', () => {
+            renderTaskAssets(18882);
+        });
+    </script>
+</body>
+</html>

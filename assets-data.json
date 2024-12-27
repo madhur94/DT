@@ -1,0 +1,67 @@
+{
+    "tasks": [
+      {
+        "task_id": 18882,
+        "assets": [
+          {
+            "asset_title": "Technical Project Management",
+            "asset_description": "Story of Alignment Scope of Agility Specific Measurable Targeted Approach",
+            "asset_type": "display_asset",
+            "asset_content": "https://www.youtube.com/embed/TiMRwri1xJ8"
+          },
+          {
+            "asset_title": "Threadbuild",
+            "asset_description": "Watch the video and threadbuild, and jot out key threads while watching the video",
+            "asset_type": "interactive_asset",
+            "asset_content": {
+              "threads": [
+                {
+                  "title": "Thread A",
+                  "sub_threads": [
+                    {
+                      "sub_thread": "Sub thread 1",
+                      "sub_interpretation": "Sub Interpretation 1"
+                    }
+                  ],
+                  "summary": "Summary for Thread A"
+                }
+              ]
+            }
+          },
+          {
+            "asset_title": "Structure your Pointers",
+            "asset_description": "Write a 300 - 400 word article from your thread. Publish your understanding and showcase your understanding to the entire world.",
+            "asset_type": "text_asset",
+            "asset_content": {
+              "title_placeholder": "Enter Title",
+              "content_placeholder": "Your article content goes here"
+            }
+          },
+          {
+            "asset_title": "4SA Method",
+            "asset_description": "To Explore more read more.",
+            "asset_type": "text_asset",
+            "asset_content": {
+              "sections": [
+                {
+                  "title": "Introduction",
+                  "content": "The 4SA Method, How to bring an idea into progress?",
+                  "link": "#"
+                },
+                {
+                  "title": "Thread A",
+                  "content": "How are you going to develop your strategy? Which method are you going to use to develop a strategy? What if the project is lengthy?",
+                  "link": "#"
+                },
+                {
+                  "title": "Example 1",
+                  "content": "You have a concept, How will you put it into progress?"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+  
